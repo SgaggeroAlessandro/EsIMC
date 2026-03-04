@@ -36,13 +36,13 @@
             this.textBoxP = new System.Windows.Forms.TextBox();
             this.listBoxPersone = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rdBIMCS = new System.Windows.Forms.RadioButton();
-            this.Media = new System.Windows.Forms.RadioButton();
-            this.rdBModa = new System.Windows.Forms.RadioButton();
-            this.rdBMediana = new System.Windows.Forms.RadioButton();
+            this.btnEsegui = new System.Windows.Forms.Button();
             this.rdbVarianza = new System.Windows.Forms.RadioButton();
             this.btnSalva = new System.Windows.Forms.Button();
-            this.btnEsegui = new System.Windows.Forms.Button();
+            this.rdBMediana = new System.Windows.Forms.RadioButton();
+            this.rdBModa = new System.Windows.Forms.RadioButton();
+            this.Media = new System.Windows.Forms.RadioButton();
+            this.rdBIMCS = new System.Windows.Forms.RadioButton();
             this.pictureBoxBMI = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBMI)).BeginInit();
@@ -91,6 +91,7 @@
             this.textBoxA.Name = "textBoxA";
             this.textBoxA.Size = new System.Drawing.Size(100, 22);
             this.textBoxA.TabIndex = 4;
+            this.textBoxA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxA_KeyPress);
             // 
             // textBoxP
             // 
@@ -98,6 +99,7 @@
             this.textBoxP.Name = "textBoxP";
             this.textBoxP.Size = new System.Drawing.Size(100, 22);
             this.textBoxP.TabIndex = 5;
+            this.textBoxP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP_KeyPress);
             // 
             // listBoxPersone
             // 
@@ -122,38 +124,37 @@
             this.panel1.Size = new System.Drawing.Size(1003, 135);
             this.panel1.TabIndex = 8;
             // 
-            // rdBIMCS
+            // btnEsegui
             // 
-            this.rdBIMCS.AutoSize = true;
-            this.rdBIMCS.Location = new System.Drawing.Point(14, 38);
-            this.rdBIMCS.Name = "rdBIMCS";
-            this.rdBIMCS.Size = new System.Drawing.Size(177, 20);
-            this.rdBIMCS.TabIndex = 0;
-            this.rdBIMCS.TabStop = true;
-            this.rdBIMCS.Text = "CALCOLO IMC SINGOLO";
-            this.rdBIMCS.UseVisualStyleBackColor = true;
+            this.btnEsegui.Location = new System.Drawing.Point(562, 87);
+            this.btnEsegui.Name = "btnEsegui";
+            this.btnEsegui.Size = new System.Drawing.Size(124, 23);
+            this.btnEsegui.TabIndex = 10;
+            this.btnEsegui.Text = "CALCOLA";
+            this.btnEsegui.UseVisualStyleBackColor = true;
+            this.btnEsegui.Click += new System.EventHandler(this.btnEsegui_Click);
             // 
-            // Media
+            // rdbVarianza
             // 
-            this.Media.AutoSize = true;
-            this.Media.Location = new System.Drawing.Point(250, 38);
-            this.Media.Name = "Media";
-            this.Media.Size = new System.Drawing.Size(96, 20);
-            this.Media.TabIndex = 1;
-            this.Media.TabStop = true;
-            this.Media.Text = "MEDIA IMC";
-            this.Media.UseVisualStyleBackColor = true;
+            this.rdbVarianza.AutoSize = true;
+            this.rdbVarianza.Location = new System.Drawing.Point(694, 38);
+            this.rdbVarianza.Name = "rdbVarianza";
+            this.rdbVarianza.Size = new System.Drawing.Size(121, 20);
+            this.rdbVarianza.TabIndex = 4;
+            this.rdbVarianza.TabStop = true;
+            this.rdbVarianza.Text = "VARIANZA IMC";
+            this.rdbVarianza.UseVisualStyleBackColor = true;
+            this.rdbVarianza.CheckedChanged += new System.EventHandler(this.rdbVarianza_CheckedChanged);
             // 
-            // rdBModa
+            // btnSalva
             // 
-            this.rdBModa.AutoSize = true;
-            this.rdBModa.Location = new System.Drawing.Point(406, 38);
-            this.rdBModa.Name = "rdBModa";
-            this.rdBModa.Size = new System.Drawing.Size(94, 20);
-            this.rdBModa.TabIndex = 2;
-            this.rdBModa.TabStop = true;
-            this.rdBModa.Text = "MODA IMC";
-            this.rdBModa.UseVisualStyleBackColor = true;
+            this.btnSalva.Location = new System.Drawing.Point(197, 87);
+            this.btnSalva.Name = "btnSalva";
+            this.btnSalva.Size = new System.Drawing.Size(149, 23);
+            this.btnSalva.TabIndex = 9;
+            this.btnSalva.Text = "SALVA PERSONA";
+            this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
             // rdBMediana
             // 
@@ -166,37 +167,43 @@
             this.rdBMediana.Text = "MEDIANA IMC";
             this.rdBMediana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rdBMediana.UseVisualStyleBackColor = true;
+            this.rdBMediana.CheckedChanged += new System.EventHandler(this.rdBMediana_CheckedChanged);
             // 
-            // rdbVarianza
+            // rdBModa
             // 
-            this.rdbVarianza.AutoSize = true;
-            this.rdbVarianza.Location = new System.Drawing.Point(694, 38);
-            this.rdbVarianza.Name = "rdbVarianza";
-            this.rdbVarianza.Size = new System.Drawing.Size(121, 20);
-            this.rdbVarianza.TabIndex = 4;
-            this.rdbVarianza.TabStop = true;
-            this.rdbVarianza.Text = "VARIANZA IMC";
-            this.rdbVarianza.UseVisualStyleBackColor = true;
+            this.rdBModa.AutoSize = true;
+            this.rdBModa.Location = new System.Drawing.Point(406, 38);
+            this.rdBModa.Name = "rdBModa";
+            this.rdBModa.Size = new System.Drawing.Size(94, 20);
+            this.rdBModa.TabIndex = 2;
+            this.rdBModa.TabStop = true;
+            this.rdBModa.Text = "MODA IMC";
+            this.rdBModa.UseVisualStyleBackColor = true;
+            this.rdBModa.CheckedChanged += new System.EventHandler(this.rdBModa_CheckedChanged);
             // 
-            // btnSalva
+            // Media
             // 
-            this.btnSalva.Location = new System.Drawing.Point(197, 87);
-            this.btnSalva.Name = "btnSalva";
-            this.btnSalva.Size = new System.Drawing.Size(149, 23);
-            this.btnSalva.TabIndex = 9;
-            this.btnSalva.Text = "SALVA PERSONA";
-            this.btnSalva.UseVisualStyleBackColor = true;
-            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
+            this.Media.AutoSize = true;
+            this.Media.Location = new System.Drawing.Point(250, 38);
+            this.Media.Name = "Media";
+            this.Media.Size = new System.Drawing.Size(96, 20);
+            this.Media.TabIndex = 1;
+            this.Media.TabStop = true;
+            this.Media.Text = "MEDIA IMC";
+            this.Media.UseVisualStyleBackColor = true;
+            this.Media.CheckedChanged += new System.EventHandler(this.Media_CheckedChanged);
             // 
-            // btnEsegui
+            // rdBIMCS
             // 
-            this.btnEsegui.Location = new System.Drawing.Point(562, 87);
-            this.btnEsegui.Name = "btnEsegui";
-            this.btnEsegui.Size = new System.Drawing.Size(124, 23);
-            this.btnEsegui.TabIndex = 10;
-            this.btnEsegui.Text = "CALCOLA";
-            this.btnEsegui.UseVisualStyleBackColor = true;
-            this.btnEsegui.Click += new System.EventHandler(this.btnEsegui_Click);
+            this.rdBIMCS.AutoSize = true;
+            this.rdBIMCS.Location = new System.Drawing.Point(14, 38);
+            this.rdBIMCS.Name = "rdBIMCS";
+            this.rdBIMCS.Size = new System.Drawing.Size(177, 20);
+            this.rdBIMCS.TabIndex = 0;
+            this.rdBIMCS.TabStop = true;
+            this.rdBIMCS.Text = "CALCOLO IMC SINGOLO";
+            this.rdBIMCS.UseVisualStyleBackColor = true;
+            this.rdBIMCS.CheckedChanged += new System.EventHandler(this.rdBIMCS_CheckedChanged);
             // 
             // pictureBoxBMI
             // 
