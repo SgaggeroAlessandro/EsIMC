@@ -54,6 +54,7 @@
             this.textBoxCN.Name = "textBoxCN";
             this.textBoxCN.Size = new System.Drawing.Size(154, 22);
             this.textBoxCN.TabIndex = 0;
+            this.textBoxCN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCN_KeyPress);
             // 
             // label1
             // 
